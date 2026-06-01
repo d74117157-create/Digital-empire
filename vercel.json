@@ -1,15 +1,11 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/slack.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "api/slack.py"
-    }
-  ]
+    "version": 2,
+    "builds": [
+          { "src": "index.html", "use": "@vercel/static" },
+          { "src": "api/slack.py", "use": "@vercel/python" }
+    ],
+    "routes": [
+          { "src": "/api/slack", "dest": "/api/slack.py" },
+          { "src": "/(.*)", "dest": "/index.html" }
+    ]
 }
